@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Clone') {
       steps {
-        git branch: 'main', url: 'https://github.com/etichiranjeevi/eCommerce-Shop.git'
+        git branch: 'main', url: 'https://github.com/Prabhupadige03/eCommerce-Shop.git'
       }
     }
     stage('Install') {
@@ -13,8 +13,8 @@ pipeline {
     }
     stage('Deploy') {
       steps {
-        sh 'scp -o StrictHostKeyChecking=no -r * ubuntu@3.88.212.66:/home/deploy/style-shop/'
-        sh ''' ssh ubuntu@3.88.212.66 "cd /home/deploy/style-shop && npm install && pm2 stop style-shop || true && pm2 start server.js --name style-shop"'''
+        sh 'scp -o StrictHostKeyChecking=no -r * ubuntu@16.171.238.77:/home/ubuntu/shopping/'
+        sh ''' ssh ubuntu@16.171.238.77 "cd /home/ubuntu/shopping && npm install && pm2 stop shopping || true && pm2 start server.js --name shopping"'''
       }
     }
   }
